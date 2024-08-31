@@ -1,0 +1,39 @@
+body,html{
+    margin-top: 100px;
+    background-color: rgba(0, 255, 0, 0.195);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    gap: 10px;
+    width: 500px;
+    margin: 20px;
+    border-radius: 10px;
+}
+button{
+    border: none;
+    border-radius: 5px;
+    background-color: green;
+    color: white;
+    height: 30px;
+    width: 150px;
+}
+.file, .encryption, .decryption{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    align-items: center;
+}
+.file form, .encryption form, .decryption form{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+p{
+    margin: 0;
+}

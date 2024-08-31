@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FILE PROTECTION</title>
+    <link rel="stylesheet" href="static/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>FILE PROTECTION</h1>
+
+        <div class="file">
+            <form action="/upload" method="post">
+                <button type="submit">SELECT FILE</button>
+            </form>
+            {% if file_path %}
+                <p>FILE SELECTED</p>
+            {% endif %}
+        </div>
+        
+        <div class="encryption">
+            <form action="/encrypt" method="post">
+                <input type="hidden" name="file_path" value="{{ file_path }}">
+                <button type="submit">ENCRYPT FILE</button>
+                {% if file_path %}
+                    {% if encrypted %}
+                        <p>FILE ENCRYPTED</p>
+                    {% else %}
+                        <input type="password" required name="password" placeholder="Enter password">
+                    {% endif %}
+                {% endif %}
+                
+            </form>
+        </div>
+
+        <div class="decryption">
+            <form action="/decrypt" method="post">
+                <input type="hidden" name="file_path" value="{{ file_path }}">
+                <button type="submit">DECRYPT FILE</button>
+                {% if file_path %}
+                    {% if decrypted %}
+                        <p>FILE DECRYPTED</p>
+                    {% else %}
+                        <input type="password" required name="password" placeholder="Enter password">
+                    {% endif %}
+                {% endif %}
+            </form>
+        </div>
+        {% if error %}
+            <p>{{ error }}</p>
+        {% endif %}
+    </div>
+</body>
+</html>
